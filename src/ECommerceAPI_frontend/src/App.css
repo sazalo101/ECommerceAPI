@@ -1,0 +1,117 @@
+/* App.css */
+
+/* General Styles */
+.App {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1, h2 {
+    margin: 0;
+    padding: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+    transform: scale(1.05);
+  }
+  
+  /* Login Container */
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Dashboard Container */
+  .dashboard-container {
+    padding: 20px;
+  }
+  
+  .logout-button {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  /* Add Product Form */
+  .add-product-form {
+    margin-bottom: 20px;
+  }
+  
+  .add-product-form input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .add-product-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  /* Product List */
+  .product-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .product-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-item:hover {
+    transform: scale(1.02);
+  }
+  
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-name, .product-price, .product-inventory {
+    margin: 5px 0;
+  }
+  
+  .view-product-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .add-to-cart-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  /* Product Details */
+  .product-details {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
