@@ -1,6 +1,7 @@
 /* App.css */
 
 /* General Styles */
+<<<<<<< HEAD
 .App {
     text-align: center;
     font-family: Arial, sans-serif;
@@ -115,3 +116,189 @@
     background-color: #f9f9f9;
   }
   
+=======
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  color: #333;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+}
+
+h1, h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Button Styles */
+button {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #00408a);
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Login */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.login-button {
+  background: linear-gradient(135deg, #28a745, #218838);
+}
+
+/* Logout */
+.logout-button {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  margin-bottom: 20px;
+}
+
+/* Forms */
+input[type="number"], input[type="text"] {
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: calc(100% - 24px);
+  box-sizing: border-box;
+}
+
+input[type="number"] {
+  max-width: 200px;
+}
+
+.add-balance-form, .add-product-form {
+  margin-bottom: 20px;
+}
+
+.add-balance-button, .add-product-button {
+  background: linear-gradient(135deg, #17a2b8, #117a8b);
+}
+
+/* Product List */
+.product-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-item {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: calc(33.333% - 20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.product-price, .product-inventory {
+  font-size: 16px;
+  color: #555;
+}
+
+.view-product-button, .add-to-cart-button {
+  background: linear-gradient(135deg, #ffc107, #e0a800);
+  margin-top: 10px;
+}
+
+/* Product Details */
+.product-details {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-link {
+  margin-top: 10px;
+}
+
+.product-link p {
+  margin: 0;
+}
+
+.product-link button {
+  background: linear-gradient(135deg, #28a745, #218838);
+}
+
+/* Connect Plug Wallet */
+.connect-plug-button {
+  background: linear-gradient(135deg, #17a2b8, #117a8b);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-item {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-item {
+    width: 100%;
+  }
+}
+>>>>>>> 5899097 (Your commit message)
