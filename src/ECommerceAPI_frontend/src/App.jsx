@@ -18,11 +18,8 @@ function App() {
   const [orderId, setOrderId] = useState(null);
   const [loading, setLoading] = useState(true);
   const [plugConnected, setPlugConnected] = useState(false);
-<<<<<<< HEAD
-=======
   const [productLink, setProductLink] = useState('');
   const [addBalanceAmount, setAddBalanceAmount] = useState('');
->>>>>>> 5899097 (Your commit message)
 
   useEffect(() => {
     const init = async () => {
@@ -123,10 +120,7 @@ function App() {
       const result = await ECommerceAPI_backend.addProduct(apiKey, productName, parseInt(productPrice), parseInt(productInventory));
       if ('ok' in result) {
         alert('Product added successfully');
-<<<<<<< HEAD
-=======
         setProductLink(result.ok);
->>>>>>> 5899097 (Your commit message)
         await fetchProducts(apiKey);
         setProductName('');
         setProductPrice('');
@@ -145,13 +139,10 @@ function App() {
       const result = await ECommerceAPI_backend.getProduct(apiKey, productId);
       if ('ok' in result) {
         setSelectedProduct(result.ok);
-<<<<<<< HEAD
-=======
         const linkResult = await ECommerceAPI_backend.getProductLink(apiKey, productId);
         if ('ok' in linkResult) {
           setProductLink(linkResult.ok);
         }
->>>>>>> 5899097 (Your commit message)
       } else {
         console.error(result.err);
       }
@@ -167,13 +158,8 @@ function App() {
         if ('ok' in result) {
           setOrderId(result.ok);
           alert('Order created successfully');
-<<<<<<< HEAD
-          // Implement payment processing with Plug Wallet here
-          // Example: await window.ic.plug.requestTransfer(...)
-=======
           await fetchUserBalance(apiKey, identity.getPrincipal().toText());
           await fetchProducts(apiKey);
->>>>>>> 5899097 (Your commit message)
         } else {
           console.error(result.err);
           alert('Error creating order');
@@ -201,8 +187,6 @@ function App() {
     }
   };
 
-<<<<<<< HEAD
-=======
   const copyProductLink = () => {
     const fullLink = `${window.location.origin}/product/${productLink}`;
     navigator.clipboard.writeText(fullLink).then(() => {
@@ -228,7 +212,6 @@ function App() {
     }
   };
 
->>>>>>> 5899097 (Your commit message)
   if (loading) {
     return <div className="App">Loading...</div>;
   }
@@ -252,8 +235,6 @@ function App() {
         <button className="connect-plug-button" onClick={handleConnectPlugWallet}>Connect Plug Wallet</button>
       )}
 
-<<<<<<< HEAD
-=======
       {/* Add Balance Form */}
       <div className="add-balance-form">
         <h2>Add Balance</h2>
@@ -266,7 +247,6 @@ function App() {
         <button className="add-balance-button" onClick={handleAddBalance}>Add Balance</button>
       </div>
 
->>>>>>> 5899097 (Your commit message)
       {/* Add Product Form */}
       <div className="add-product-form">
         <h2>Add Product</h2>
@@ -289,15 +269,12 @@ function App() {
           onChange={(e) => setProductInventory(e.target.value)}
         />
         <button className="add-product-button" onClick={handleAddProduct}>Add Product</button>
-<<<<<<< HEAD
-=======
         {productLink && (
           <div className="product-link">
             <p>Product Link: {`${window.location.origin}/product/${productLink}`}</p>
             <button onClick={copyProductLink}>Copy Link</button>
           </div>
         )}
->>>>>>> 5899097 (Your commit message)
       </div>
 
       {/* Product List */}
@@ -323,15 +300,12 @@ function App() {
           <p><strong>Name:</strong> {selectedProduct.name}</p>
           <p><strong>Price:</strong> {selectedProduct.price}</p>
           <p><strong>Inventory:</strong> {selectedProduct.inventory}</p>
-<<<<<<< HEAD
-=======
           {productLink && (
             <div className="product-link">
               <p>Product Link: {`${window.location.origin}/product/${productLink}`}</p>
               <button onClick={copyProductLink}>Copy Link</button>
             </div>
           )}
->>>>>>> 5899097 (Your commit message)
         </div>
       )}
     </div>

@@ -8,10 +8,7 @@ import Hash "mo:base/Hash";
 import HashMap "mo:base/HashMap";
 import Time "mo:base/Time";
 import Int "mo:base/Int";
-<<<<<<< HEAD
-=======
 import Principal "mo:base/Principal";
->>>>>>> 5899097 (Your commit message)
 
 actor ECommerceAPI {
     type ProductId = Nat;
@@ -54,46 +51,30 @@ actor ECommerceAPI {
     private let users = HashMap.HashMap<UserId, User>(0, Text.equal, Text.hash);
     private let orders = HashMap.HashMap<OrderId, Order>(0, Nat.equal, Hash.hash);
     private let apiKeys = HashMap.HashMap<ApiKey, UserId>(0, Text.equal, Text.hash);
-<<<<<<< HEAD
-
-    // Simple random number generator
-=======
     private let productLinks = HashMap.HashMap<Text, ProductId>(0, Text.equal, Text.hash);
 
->>>>>>> 5899097 (Your commit message)
     private var seed : Nat = 123456789;
     private func random() : Nat {
         seed := (seed * 1103515245 + 12345) % (2**32);
         seed
     };
 
-<<<<<<< HEAD
-    // Helper function to generate a simple API key
-=======
->>>>>>> 5899097 (Your commit message)
     private func generateApiKey() : ApiKey {
         let timestamp = Int.abs(Time.now());
         let randomPart = random();
         Text.concat(Nat.toText(timestamp), Nat.toText(randomPart))
     };
 
-<<<<<<< HEAD
-    // Helper function to validate API key
-=======
->>>>>>> 5899097 (Your commit message)
     private func validateApiKey(key: ApiKey) : Bool {
         Option.isSome(apiKeys.get(key))
     };
 
-<<<<<<< HEAD
-=======
     private func generateProductLink(productId: ProductId) : Text {
         let timestamp = Int.abs(Time.now());
         let randomPart = random();
         Text.concat("product-", Text.concat(Nat.toText(productId), Text.concat("-", Text.concat(Nat.toText(timestamp), Nat.toText(randomPart)))))
     };
 
->>>>>>> 5899097 (Your commit message)
     public func createUser(id: UserId, name: Text) : async ApiKey {
         let apiKey = generateApiKey();
         let user : User = {
@@ -107,11 +88,7 @@ actor ECommerceAPI {
         apiKey
     };
 
-<<<<<<< HEAD
-    public func addProduct(apiKey: ApiKey, name: Text, price: Nat, inventory: Nat) : async Result.Result<ProductId, Error> {
-=======
     public func addProduct(apiKey: ApiKey, name: Text, price: Nat, inventory: Nat) : async Result.Result<Text, Error> {
->>>>>>> 5899097 (Your commit message)
         if (not validateApiKey(apiKey)) {
             return #err(#Unauthorized);
         };
@@ -124,13 +101,9 @@ actor ECommerceAPI {
             inventory = inventory;
         };
         products.put(id, product);
-<<<<<<< HEAD
-        #ok(id)
-=======
         let productLink = generateProductLink(id);
         productLinks.put(productLink, id);
         #ok(productLink)
->>>>>>> 5899097 (Your commit message)
     };
 
     public query func getProduct(apiKey: ApiKey, id: ProductId) : async Result.Result<Product, Error> {
@@ -143,8 +116,6 @@ actor ECommerceAPI {
         }
     };
 
-<<<<<<< HEAD
-=======
     public query func getProductByLink(apiKey: ApiKey, link: Text) : async Result.Result<Product, Error> {
         if (not validateApiKey(apiKey)) {
             return #err(#Unauthorized);
@@ -160,7 +131,6 @@ actor ECommerceAPI {
         }
     };
 
->>>>>>> 5899097 (Your commit message)
     public func addUserBalance(apiKey: ApiKey, userId: UserId, amount: Nat) : async Result.Result<(), Error> {
         if (not validateApiKey(apiKey)) {
             return #err(#Unauthorized);
@@ -203,10 +173,6 @@ actor ECommerceAPI {
                 };
                 orders.put(orderId, order);
 
-<<<<<<< HEAD
-                // Update product inventory
-=======
->>>>>>> 5899097 (Your commit message)
                 let updatedProduct : Product = {
                     id = product.id;
                     name = product.name;
@@ -215,10 +181,6 @@ actor ECommerceAPI {
                 };
                 products.put(productId, updatedProduct);
 
-<<<<<<< HEAD
-                // Update user balance
-=======
->>>>>>> 5899097 (Your commit message)
                 let updatedUser : User = {
                     id = user.id;
                     name = user.name;
@@ -252,9 +214,6 @@ actor ECommerceAPI {
         let end = if (start + limit > size) { size } else { start + limit };
         #ok(Array.subArray(productArray, start, end - start))
     };
-<<<<<<< HEAD
-}
-=======
 
     public query func getProductLink(apiKey: ApiKey, productId: ProductId) : async Result.Result<Text, Error> {
         if (not validateApiKey(apiKey)) {
@@ -283,4 +242,3 @@ actor ECommerceAPI {
         }
     };
 }
->>>>>>> 5899097 (Your commit message)
